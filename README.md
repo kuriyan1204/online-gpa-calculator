@@ -1,2 +1,2 @@
 # online-gpa-calculator
-Online GPA Calculator for Tohoku University Students
+東北大生のための，オンラインGPA計算機です．
