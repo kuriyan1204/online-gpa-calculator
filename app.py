@@ -23,6 +23,21 @@ def home():
     for grade in grades:
         grade[0] = jaconv.z2h(grade[0], kana=False, digit=True, ascii=True)
         grade[1] = jaconv.z2h(grade[1], kana=False, digit=True, ascii=True)
+
+        #If numerical grades
+        if grade[0].isdecimal():
+            int_grade = int(grade[0])
+            if 90 <= int_grade <= 100:
+                grade[0] = "AA"
+            elif 80<=int_grade <90:
+                grade[0] = "A"
+            elif 70<=int_grade <80:
+                grade[0] = "B"
+            elif 60<=int_grade <70:
+                grade[0] = "C"
+            else:
+                grade[0] = "D"
+
         if grade[0] in GRADE.keys():
             raw_gpa += GRADE[grade[0]]
             weighted_gpa += GRADE[grade[0]]*float(grade[1])
@@ -38,7 +53,7 @@ def home():
         st.stop()
     
     st.write(f"総取得単位数：{cred}")
-    st.write(f"GPA：{weighted_gpa/cred}")
+    st.write(f"GPA：{weighted_gpa/cred:.3f}")
 
 #deploy sever
 if __name__ == "__main__":
