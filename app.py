@@ -1,3 +1,4 @@
+from typing import AbstractSet
 import streamlit as st
 import jaconv
 
@@ -30,6 +31,8 @@ def home():
     weighted_gpa = 0.0
     cred = 0.0
 
+    creds = {"AA":0.0,"A":0.0,"B":0.0,"C":0.0,"D":0.0}
+
     for grade in grades:
         grade[0] = jaconv.z2h(grade[0], kana=False, digit=True, ascii=True)
         grade[1] = jaconv.z2h(grade[1], kana=False, digit=True, ascii=True)
@@ -52,6 +55,8 @@ def home():
             raw_gpa += GRADE[grade[0]]
             weighted_gpa += GRADE[grade[0]]*float(grade[1])
             cred += float(grade[1])
+            creds[grade[0]] += float(grade[1])
+
 
     operation = st.button("GPAを計算")
 
@@ -64,6 +69,10 @@ def home():
     
     st.write(f"総取得単位数：{cred}")
     st.write(f"GPA：{weighted_gpa/cred:.3f}")
+
+    with st.expander("取得単位の詳細",expanded=False):
+        for grade in creds:
+            st.write(f"{grade}：{creds[grade]}単位")
 
 #deploy sever
 if __name__ == "__main__":
