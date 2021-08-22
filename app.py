@@ -4,8 +4,13 @@ import jaconv
 GRADE = {"AA":4.0,"A":3.0,"B":2.0,"C":1.0,"D":0.0}
 
 def home():
-
     st.write("# 東北大生用 GPA Calculator (β版)")
+    st.markdown("""<small>App Developer:
+    <a href="https://github.com/kuriyan1204"
+    target="_blank">
+    @kuriyan1204
+    </a></small>
+    """,unsafe_allow_html=True)
     lines = st.text_area("""学務情報システムから，成績をコピーしてそのままペーストしてください．""",height=300).split("\n")
     
     grades = []
