@@ -3,6 +3,11 @@ import jaconv
 
 GRADE = {"AA":4.0,"A":3.0,"B":2.0,"C":1.0,"D":0.0}
 
+st.set_page_config(
+    page_title="Tohoku GPA Calculator",
+    layout="wide",
+)
+
 def home():
     st.write("# 東北大生用 GPA Calculator (β版)")
     st.markdown("""<small>App Developer:
