@@ -116,6 +116,7 @@ def home():
     data-text = "{tweet_text}"
     data-show-count="false" 
     data-size='large' 
+    data-url='https://tohoku-gpa.herokuapp.com/' 
     data-related='kuriyan1204' >
     tweet</a>
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
