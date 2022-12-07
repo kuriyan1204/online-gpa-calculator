@@ -1,0 +1,10 @@
+services:
+  streamlit:
+    build:
+      dockerfile: Dockerfile
+    volumes:
+      - type: bind
+        source: "."
+        target: "/"
+    ports:
+      - "8501:8501"
